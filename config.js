@@ -1,5 +1,5 @@
 const configuration = {
-    targetSubscriberCount: 98750,
+    targetSubscriberCount: 100000,
     channelId: '',
     hostname: 'http://localhost:3000',
     port: 3000,
