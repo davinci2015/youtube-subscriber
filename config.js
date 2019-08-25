@@ -4,7 +4,7 @@ const configuration = {
     hostname: 'http://localhost:3000',
     port: 3000,
     interval: {
-        min: 1000, // 300ms
+        min: 300, // 300ms
         max: 1000 * 60 * 60 // 1h
     },
 

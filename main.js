@@ -29,19 +29,12 @@ const authenticate = async (client, scopes) => new Promise((resolve, reject) => 
 })
 
 const calculateInterval = subscriberCount => {
-    let interval = configuration.interval.max
-
     const diff = Math.pow(configuration.targetSubscriberCount - subscriberCount, 2)
 
-    if (diff < configuration.interval.max) {
-        interval = diff
-    }
+    if (diff < configuration.interval.min) return configuration.interval.min
+    if (diff < configuration.interval.max) return diff
 
-    if (diff < configuration.interval.min) {
-        interval = configuration.interval.min
-    }
-
-    return interval
+    return configuration.interval.max
 }
 
 const checkSubscriberCount = interval => async client => {
