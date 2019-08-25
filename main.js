@@ -29,7 +29,7 @@ const authenticate = async (client, scopes) => new Promise((resolve, reject) => 
 })
 
 const calculateInterval = subscriberCount => {
-    const diff = Math.pow(configuration.targetSubscriberCount - subscriberCount, 2)
+    const diff = Math.pow(configuration.subscriberCountTarget - subscriberCount, 2)
 
     if (diff < configuration.interval.min) return configuration.interval.min
     if (diff < configuration.interval.max) return diff
@@ -41,9 +41,9 @@ const checkSubscriberCount = async (interval, client) => {
     setTimeout(async () => {
         try {
             const {subscriberCount} = await getChannelStatistics(configuration.channelId, client)
-            if (Number(subscriberCount) > configuration.targetSubscriberCount) {
+            if (Number(subscriberCount) > configuration.subscriberCountTarget) {
                 console.log(`Current number of subscribers: ${subscriberCount}. Please update configuration parameters.`)
-            } else if (Number(subscriberCount) === configuration.targetSubscriberCount - 1) {
+            } else if (Number(subscriberCount) === configuration.subscriberCountTarget - 1) {
                 await subscribe(configuration.channelId, client)
                 console.log('Subscribed!')
             } else {

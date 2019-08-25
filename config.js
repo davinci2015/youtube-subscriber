@@ -1,5 +1,5 @@
-const configuration = {
-    targetSubscriberCount: 100000,
+module.exports = {
+    subscriberCountTarget: 100000,
     channelId: '',
     hostname: 'http://localhost:3000',
     port: 3000,
@@ -15,5 +15,3 @@ const configuration = {
         redirect_uris: ['http://localhost:3000/oauth2callback']
     }
 }
-
-module.exports = configuration
