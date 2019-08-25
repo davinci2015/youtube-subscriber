@@ -37,7 +37,7 @@ const calculateInterval = subscriberCount => {
     return configuration.interval.max
 }
 
-const checkSubscriberCount = interval => async client => {
+const checkSubscriberCount = async (interval, client) => {
     setTimeout(async () => {
         try {
             const {subscriberCount} = await getChannelStatistics(configuration.channelId, client)
@@ -50,7 +50,7 @@ const checkSubscriberCount = interval => async client => {
                 const interval = calculateInterval(subscriberCount)
                 console.log(`${subscriberCount} ${new Date().toLocaleString()}`)
                 console.log(`Next subscriber check in ${(interval / 1000).toFixed(2)} seconds\n`)
-                checkSubscriberCount(interval)(client)
+                checkSubscriberCount(interval, client)
             }
         } catch (err) {
             console.log('The API returned an error:', err)
@@ -70,7 +70,7 @@ const checkSubscriberCount = interval => async client => {
 
     try {
         await authenticate(oauth2Client, scopes)
-        checkSubscriberCount(configuration.interval.min)(oauth2Client)
+        checkSubscriberCount(configuration.interval.min, oauth2Client)
     } catch (e) {
         console.log(e)
     }
