@@ -1,6 +1,6 @@
 # Youtube Subscriber
 
-If you want to know why this repo was created read this story about €1.000,00 voucher.
+If you want to know why this repo was created read [this story](https://dev.to/cobe_tech/is-this-1-000-00-worth-node-script-548l) about €1.000,00 voucher.
 
 ## Installation 
 
