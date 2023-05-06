@@ -9,7 +9,7 @@
   "author": "Danijel Vincijanović",
   "license": "ISC",
   "dependencies": {
-    "googleapis": "^42.0.0",
+    "googleapis": "^118.0.0",
     "open": "^6.4.0"
   }
 }
