@@ -1,6 +1,6 @@
 module.exports = {
     subscriberCountTarget: 100000,
-    channelId: '',
+    channelId: 'megabsariksmh',
     hostname: 'http://localhost:3000',
     port: 3000,
     interval: {
